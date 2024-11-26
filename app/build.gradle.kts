@@ -1,7 +1,5 @@
 plugins {
-//    alias(libs.plugins.android.application)
-//    alias(libs.plugins.kotlin.android)
-//    alias(libs.plugins.kotlin.compose)
+
     alias(libs.plugins.runiquee.android.application.compose)
     alias(libs.plugins.runiquee.jvm.ktor)
     alias(libs.plugins.mapsplatform.secrets.plugin)
@@ -19,6 +17,10 @@ android {
 //        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    packaging {
+        resources.excludes.add("META-INF/androidx/emoji2/emoji2/LICENSE.txt")
+        resources.excludes.add("META-INF/androidx.emoji2_emoji2.version")
     }
 
 //    buildTypes {
@@ -48,25 +50,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
 
-//    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-
-    // Coil
-    implementation(libs.coil.compose)
-
     // Compose
     implementation(libs.androidx.activity.compose)
-
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
@@ -75,12 +60,12 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.emoji2)
+    implementation(libs.emoji2.views)
+    implementation(libs.compose.runtime)
 
-//    implementation(libs.androidx.benchmark.macro)
-//    implementation(libs.my.library)
-
-
-
+    // Coil
+    implementation(libs.coil.compose)
 
     // Crypto
     implementation(libs.androidx.security.crypto.ktx)
